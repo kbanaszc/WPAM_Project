@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddCountingTaskFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/counting_task_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="What are we counting?"
+            android:textSize="@dimen/counting_task_input_fields"
+            tools:layout_editor_absoluteX="52dp"
+            tools:layout_editor_absoluteY="37dp" />
+
+        <EditText
+            android:id="@+id/counting_task_goal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="What is your goal?"
+            android:textSize="@dimen/counting_task_input_fields"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="289dp" />
+
+        <EditText
+            android:id="@+id/counting_task_append"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="How much we append at once?"
+            android:textSize="@dimen/counting_task_input_fields"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="173dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/tasksFragment">
+
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.wpam_project.AddTaskFragment"
+        android:label="Add Task"
+        tools:layout="@layout/fragment_add_task" >
+        <action
+            android:id="@+id/action_addTaskFragment_to_addToDoTaskFragment"
+            app:destination="@id/addToDoTaskFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.example.wpam_project.TasksFragment"
+        android:label="Your Tasks"
+        tools:layout="@layout/fragment_tasks" />
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.wpam_project.CalendarFragment"
+        android:label="Calendar of Progress"
+        tools:layout="@layout/fragment_calendar" />
+    <fragment
+        android:id="@+id/addToDoTaskFragment"
+        android:name="com.example.wpam_project.AddToDoTaskFragment"
+        android:label="Add Todo Task"
+        tools:layout="@layout/fragment_add_to_do_task" />
+</navigation>
