@@ -9,20 +9,21 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class ToDoTaskDBHelper extends SQLiteOpenHelper {
+public class TimeTaskDBHelper extends SQLiteOpenHelper {
 
 
     private Context context;
-    private static final String DATABASE_NAME = "ToDoTask.db";
+    private static final String DATABASE_NAME = "TimeTask.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String TABLE_NAME = "todo_tasks";
+    private static final String TABLE_NAME = "time_tasks";
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_TASK_NAME = "task_name";
+    private static final String COLUMN_TIME = "time";
     private static final String COLUMN_DONE = "task_done";
 
 
-    public ToDoTaskDBHelper(@Nullable Context context) {
+    public TimeTaskDBHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -33,6 +34,7 @@ public class ToDoTaskDBHelper extends SQLiteOpenHelper {
                 "CREATE TABLE " + TABLE_NAME +
                         " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         COLUMN_TASK_NAME + " TEXT, " +
+                        COLUMN_TIME + " INTEGER, " +
                         COLUMN_DONE + " BOOLEAN);";
         db.execSQL(query);
     }
@@ -43,11 +45,12 @@ public class ToDoTaskDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addTask(String task, boolean done){
+    public void addTask(String task, int time, boolean done){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_TASK_NAME, task);
+        cv.put(COLUMN_TIME, time);
         cv.put(COLUMN_DONE, done);
         long result = db.insert(TABLE_NAME, null, cv);
         if(result == -1){
@@ -57,7 +60,7 @@ public class ToDoTaskDBHelper extends SQLiteOpenHelper {
         }
     }
 
-      public Cursor readAllData(){
+    public Cursor readAllData(){
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -68,10 +71,11 @@ public class ToDoTaskDBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public void taskChecked(String row_id, String task, boolean done){
+    public void taskChecked(String row_id, String task, int time, boolean done){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TASK_NAME,task);
+        cv.put(COLUMN_TIME,time);
         cv.put(COLUMN_DONE,done);
         db.update(TABLE_NAME,cv,"id=?",new String[]{row_id});
     }

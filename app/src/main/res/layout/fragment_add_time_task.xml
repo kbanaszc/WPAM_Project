@@ -17,12 +17,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/adding_task_horizontal_margins"
             android:layout_marginEnd="@dimen/adding_task_horizontal_margins"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="32dp"
             android:hint="What task are we counting down?"
-            app:layout_constraintBottom_toTopOf="@+id/todo_save_button"
+            app:layout_constraintBottom_toTopOf="@+id/time_to_countdown"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/time_to_countdown"
@@ -32,15 +34,14 @@
             android:layout_marginEnd="@dimen/adding_task_horizontal_margins"
             android:layout_marginBottom="32dp"
             android:hint="Enter time you want to countdown"
-            app:layout_constraintBottom_toTopOf="@+id/time_name_input"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@+id/time_save_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/todo_save_button"
+            android:id="@+id/time_save_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/adding_task_horizontal_margins"

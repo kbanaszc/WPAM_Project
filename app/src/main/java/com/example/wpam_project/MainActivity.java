@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 switch(item.getItemId()){
                     case R.id.tasksFragment:
                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,tasksFragment).commit();
-
                         return true;
                     case R.id.addTaskFragment:
                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,addTaskFragment).commit();
@@ -66,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
+
+
 
 
 }

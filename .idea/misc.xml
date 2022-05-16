@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/drawable/ic_baseline_timer_24.xml" value="0.288" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_add_counting_task.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_add_task.xml" value="0.22" />
-        <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_add_time_task.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_add_time_task.xml" value="0.33" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_add_to_do_task.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_calendar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_tasks.xml" value="0.26262626262626265" />
+        <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_time_task.xml" value="0.5" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_todo_task.xml" value="0.33" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/increment_task.xml" value="0.33" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/menu/bottom_menu.xml" value="0.36666666666666664" />

@@ -34,7 +34,11 @@
         android:id="@+id/addToDoTaskFragment"
         android:name="com.example.wpam_project.AddToDoTaskFragment"
         android:label="Add Todo Task"
-        tools:layout="@layout/fragment_add_to_do_task" />
+        tools:layout="@layout/fragment_add_to_do_task" >
+        <action
+            android:id="@+id/action_addToDoTaskFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addCountingTaskFragment"
         android:name="com.example.wpam_project.AddCountingTaskFragment"
