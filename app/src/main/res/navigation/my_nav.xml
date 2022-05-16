@@ -24,7 +24,11 @@
         android:id="@+id/tasksFragment"
         android:name="com.example.wpam_project.TasksFragment"
         android:label="Your Tasks"
-        tools:layout="@layout/fragment_tasks" />
+        tools:layout="@layout/fragment_tasks" >
+        <action
+            android:id="@+id/action_tasksFragment_to_timeViewFragment"
+            app:destination="@id/timeViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/calendarFragment"
         android:name="com.example.wpam_project.CalendarFragment"
@@ -34,11 +38,7 @@
         android:id="@+id/addToDoTaskFragment"
         android:name="com.example.wpam_project.AddToDoTaskFragment"
         android:label="Add Todo Task"
-        tools:layout="@layout/fragment_add_to_do_task" >
-        <action
-            android:id="@+id/action_addToDoTaskFragment_to_addTaskFragment"
-            app:destination="@id/addTaskFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_add_to_do_task" />
     <fragment
         android:id="@+id/addCountingTaskFragment"
         android:name="com.example.wpam_project.AddCountingTaskFragment"
@@ -49,4 +49,9 @@
         android:name="com.example.wpam_project.AddTimeTaskFragment"
         android:label="fragment_add_time_task"
         tools:layout="@layout/fragment_add_time_task" />
+    <activity
+        android:id="@+id/timeViewFragment"
+        android:name="com.example.wpam_project.MainActivity"
+        android:label="fragment_time_task_view"
+        tools:layout="@layout/fragment_time_task_view" />
 </navigation>

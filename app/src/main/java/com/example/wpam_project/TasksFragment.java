@@ -1,5 +1,6 @@
 package com.example.wpam_project;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -12,8 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.wpam_project.Adapters.CounterTaskAdapter;
 import com.example.wpam_project.Adapters.TimeTaskAdapter;
 import com.example.wpam_project.Adapters.ToDoTaskAdapter;
+import com.example.wpam_project.DBHelpers.CounterTaskDBHelper;
 import com.example.wpam_project.DBHelpers.TimeTaskDBHelper;
 import com.example.wpam_project.DBHelpers.ToDoTaskDBHelper;
 
@@ -22,16 +25,19 @@ import java.util.ArrayList;
 
 public class TasksFragment extends Fragment {
 
-    RecyclerView recyclerViewToDo, recyclerViewTime;
+    RecyclerView recyclerViewToDo, recyclerViewTime, recyclerViewCounter;
 
     TimeTaskDBHelper timeTaskDBHelper;
     ToDoTaskDBHelper toDoTaskDBHelper;
+    CounterTaskDBHelper counterTaskDBHelper;
 
     ArrayList<String> todo_id, todo_task, todo_done;
     ArrayList<String> time_id, time_task,time_time, time_done;
+    ArrayList<String> counter_id, counter_task, counter_goal, counter_to_goal, counter_adder, counter_done;
 
     ToDoTaskAdapter toDoTaskAdapter;
     TimeTaskAdapter timeTaskAdapter;
+    CounterTaskAdapter counterTaskAdapter;
 
     Context context;
     Fragment fragment;
@@ -43,11 +49,13 @@ public class TasksFragment extends Fragment {
     View rootView = inflater.inflate(R.layout.fragment_tasks, container, false);
     recyclerViewToDo = rootView.findViewById(R.id.recyclerView);
     recyclerViewTime = rootView.findViewById(R.id.recyclerViewTime);
+    recyclerViewCounter = rootView.findViewById(R.id.recyclerViewCount);
     this.context = container.getContext();
     this.fragment = getParentFragment();
 
     toDoTaskDBHelper = new ToDoTaskDBHelper(getActivity());
     timeTaskDBHelper = new TimeTaskDBHelper(getActivity());
+    counterTaskDBHelper = new CounterTaskDBHelper(getActivity());
     todo_id = new ArrayList<>();
     todo_task = new ArrayList<>();
     todo_done = new ArrayList<>();
@@ -55,6 +63,13 @@ public class TasksFragment extends Fragment {
     time_task = new ArrayList<>();
     time_time = new ArrayList<>();
     time_done = new ArrayList<>();
+    counter_id = new ArrayList<>();
+    counter_task = new ArrayList<>();
+    counter_goal = new ArrayList<>();
+    counter_to_goal = new ArrayList<>();
+    counter_adder = new ArrayList<>();
+    counter_done = new ArrayList<>();
+
 
     storeDataInArraysToDo();
         toDoTaskAdapter = new ToDoTaskAdapter(fragment,context,todo_id,todo_task,todo_done);
@@ -62,7 +77,7 @@ public class TasksFragment extends Fragment {
         recyclerViewToDo.setLayoutManager(new LinearLayoutManager(getActivity()));
 
     storeDataInArraysTime();
-        timeTaskAdapter = new TimeTaskAdapter(fragment,context,time_id,time_task,time_time,time_done);
+        timeTaskAdapter = new TimeTaskAdapter(this, fragment,context,time_id,time_task,time_time,time_done);
         recyclerViewTime.setAdapter(timeTaskAdapter);
         recyclerViewTime.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -93,7 +108,24 @@ public class TasksFragment extends Fragment {
             }
         }
     }
+    void storeDataInArraysCounter(){
+        Cursor cursor = counterTaskDBHelper.readAllData();
+        if(cursor.getCount()==0){
+        }else{
+            while(cursor.moveToNext()){
+                counter_id.add(cursor.getString(0));
+                counter_task.add(cursor.getString(1));
+                counter_goal.add(cursor.getString(2));
+                counter_to_goal.add(cursor.getString(3));
+                counter_adder.add(cursor.getString(4));
+                counter_done.add(cursor.getString(5));
+            }
+        }
+    }
 
+    public void navigateToTimeView(){
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new TimeTaskFragment()).commit();
+    }
 
 
 }

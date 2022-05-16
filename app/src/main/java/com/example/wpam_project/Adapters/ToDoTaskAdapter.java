@@ -84,8 +84,6 @@ public class ToDoTaskAdapter extends RecyclerView.Adapter<ToDoTaskAdapter.MyView
                 }
             });
             builder.create().show();
-
-
             return true;
         });
     }

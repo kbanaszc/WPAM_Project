@@ -1,5 +1,7 @@
 package com.example.wpam_project.Adapters;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
@@ -13,13 +15,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wpam_project.AddTaskFragment;
 import com.example.wpam_project.AddToDoTaskFragment;
 import com.example.wpam_project.DBHelpers.TimeTaskDBHelper;
 import com.example.wpam_project.DBHelpers.ToDoTaskDBHelper;
+import com.example.wpam_project.MainActivity;
 import com.example.wpam_project.R;
+import com.example.wpam_project.TasksFragment;
+import com.example.wpam_project.TimeTaskFragment;
 
 import java.util.ArrayList;
 
@@ -27,16 +33,17 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
 
     private Context context;
     private ArrayList time_id, time_task, time_time, time_done;
-    Fragment fragment;
+    private Fragment fragment;
+    private TasksFragment fragment2;
 
-
-    public TimeTaskAdapter( Fragment fragment, Context context, ArrayList time_id, ArrayList time_task, ArrayList time_time, ArrayList time_done){
+    public TimeTaskAdapter(TasksFragment fragment2,Fragment fragment, Context context, ArrayList time_id, ArrayList time_task, ArrayList time_time, ArrayList time_done){
         this.fragment = fragment;
         this.context = context;
         this.time_id = time_id;
         this.time_task = time_task;
         this.time_time = time_time;
         this.time_done = time_done;
+        this.fragment2 = fragment2;
     }
 
     @NonNull
@@ -47,8 +54,9 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
-    public void onBindViewHolder(@NonNull TimeTaskAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         String plasterwork = String.valueOf(time_done.get(position));
         holder.time_text_input.setText(String.valueOf(time_task.get(position)));
         holder.time_time_input.setText(String.valueOf(time_time.get(position))+":00");
@@ -60,8 +68,11 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
             holder.time_time_input.setTextColor(context.getResources().getColor(R.color.teal_700));
         }
         holder.mainLayoutTime.setOnTouchListener((v, event) -> {
-
-            return true;
+            if(event.getAction() == MotionEvent.ACTION_UP){
+                fragment2.navigateToTimeView();
+                return true;
+            }
+            return false;
         });
         holder.mainLayoutTime.setOnLongClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -83,7 +94,6 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
                 }
             });
             builder.create().show();
-
             return true;
         });
     }
@@ -105,7 +115,4 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
         }
     }
 
-    public void navigateToTimeView(){
-        fragment.requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new AddTaskFragment()).commit();
-    }
 }
