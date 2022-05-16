@@ -4,51 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCountingTaskFragment">
+    tools:context=".AddTimeTaskFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/counting_name_input"
+            android:id="@+id/time_name_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/adding_task_horizontal_margins"
             android:layout_marginEnd="@dimen/adding_task_horizontal_margins"
-            android:layout_marginBottom="60dp"
-            android:hint="What are we counting?"
-            android:textSize="@dimen/counting_task_input_fields"
+            android:layout_marginBottom="50dp"
+            android:hint="What task are we counting down?"
             app:layout_constraintBottom_toTopOf="@+id/todo_save_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/counting_task_goal"
+            android:id="@+id/time_to_countdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/adding_task_horizontal_margins"
             android:layout_marginEnd="@dimen/adding_task_horizontal_margins"
             android:layout_marginBottom="32dp"
-            android:hint="What is your goal?"
-            android:textSize="@dimen/counting_task_input_fields"
-            app:layout_constraintBottom_toTopOf="@+id/counting_name_input"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/counting_task_append"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/adding_task_horizontal_margins"
-            android:layout_marginEnd="@dimen/adding_task_horizontal_margins"
-            android:layout_marginBottom="32dp"
-            android:hint="How much we append at once?"
-            android:textSize="@dimen/counting_task_input_fields"
-            app:layout_constraintBottom_toTopOf="@+id/counting_task_goal"
+            android:hint="Enter time you want to countdown"
+            app:layout_constraintBottom_toTopOf="@+id/time_name_input"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,14 +45,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/adding_task_horizontal_margins"
             android:layout_marginEnd="@dimen/adding_task_horizontal_margins"
-            android:layout_marginBottom="224dp"
+            android:layout_marginBottom="260dp"
             android:text="Save"
             android:textSize="@dimen/add_task_buttons_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

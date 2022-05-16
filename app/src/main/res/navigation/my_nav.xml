@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_addTaskFragment_to_addToDoTaskFragment"
             app:destination="@id/addToDoTaskFragment"/>
+        <action
+            android:id="@+id/action_addTaskFragment_to_addCountingTaskFragment"
+            app:destination="@id/addCountingTaskFragment" />
+        <action
+            android:id="@+id/action_addTaskFragment_to_addTimeTaskFragment"
+            app:destination="@id/addTimeTaskFragment" />
     </fragment>
     <fragment
         android:id="@+id/tasksFragment"
@@ -29,4 +35,14 @@
         android:name="com.example.wpam_project.AddToDoTaskFragment"
         android:label="Add Todo Task"
         tools:layout="@layout/fragment_add_to_do_task" />
+    <fragment
+        android:id="@+id/addCountingTaskFragment"
+        android:name="com.example.wpam_project.AddCountingTaskFragment"
+        android:label="fragment_add_counting_task"
+        tools:layout="@layout/fragment_add_counting_task" />
+    <fragment
+        android:id="@+id/addTimeTaskFragment"
+        android:name="com.example.wpam_project.AddTimeTaskFragment"
+        android:label="fragment_add_time_task"
+        tools:layout="@layout/fragment_add_time_task" />
 </navigation>

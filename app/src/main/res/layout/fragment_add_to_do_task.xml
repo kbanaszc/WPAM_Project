@@ -12,13 +12,14 @@
 
 
         <EditText
-            android:id="@+id/todo_input_text"
+            android:id="@+id/todo_name_input"
+            android:name="com.example.android.navigation.activity.DestinationActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="@dimen/adding_task_horizontal_margins"
+            android:layout_marginEnd="@dimen/adding_task_horizontal_margins"
             android:hint="Insert your task here :)"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintBottom_toTopOf="@+id/attach_app_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,13 +27,13 @@
             app:layout_constraintVertical_bias="0.75" />
 
         <Button
-            android:id="@+id/todo_submit_button"
+            android:id="@+id/todo_save_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="@dimen/adding_task_horizontal_margins"
+            android:layout_marginEnd="@dimen/adding_task_horizontal_margins"
             android:layout_marginBottom="252dp"
-            android:text="Submit"
+            android:text="Save"
             android:textSize="@dimen/add_task_buttons_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,14 +41,15 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/attach_app_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginStart="@dimen/adding_task_horizontal_margins"
+            android:layout_marginEnd="@dimen/adding_task_horizontal_margins"
             android:layout_marginBottom="64dp"
             android:text="Attach application to this task"
-            app:layout_constraintBottom_toTopOf="@+id/todo_submit_button"
+            android:backgroundTint="#B18FEF"
+            app:layout_constraintBottom_toTopOf="@+id/todo_save_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
