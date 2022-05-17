@@ -140,4 +140,6 @@ public class TasksFragment extends Fragment {
     public void navigateToTasksView(){
         requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new TasksFragment()).commit();
     }
+
+
 }
