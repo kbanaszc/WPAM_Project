@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="task_done">#8BC34A</color>
     <color name="timer_pause_button">#FFBB86FC</color>
+    <color name="bad_progress">#F44336</color>
+    <color name="medium_progress">#FFEB3B</color>
+    <color name="good_progress">#4CAF50</color>
+    <color name="exelent_progress">#009688</color>
 </resources>

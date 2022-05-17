@@ -35,7 +35,7 @@ public class TasksFragment extends Fragment {
     ArrayList<String> todo_id, todo_task, todo_done;
     ArrayList<String> time_id, time_task,time_time, time_done;
     ArrayList<String> counter_id, counter_task, counter_goal, counter_to_goal, counter_adder, counter_done;
-    public ArrayList<String> timer_tasks_done;
+
 
     ToDoTaskAdapter toDoTaskAdapter;
     TimeTaskAdapter timeTaskAdapter;
@@ -55,8 +55,7 @@ public class TasksFragment extends Fragment {
     this.context = container.getContext();
     this.fragment = getParentFragment();
 
-    ArrayList<String> timerTaskDone = new ArrayList<>();
-    timerTaskDone.add("dupa");
+
 
     toDoTaskDBHelper = new ToDoTaskDBHelper(getActivity());
     timeTaskDBHelper = new TimeTaskDBHelper(getActivity());
@@ -92,6 +91,7 @@ public class TasksFragment extends Fragment {
         recyclerViewCounter.setAdapter(counterTaskAdapter);
         recyclerViewCounter.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        ProgressCounter();
         return rootView;
 }
 
@@ -140,6 +140,30 @@ public class TasksFragment extends Fragment {
     public void navigateToTasksView(){
         requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new TasksFragment()).commit();
     }
+
+    public double ProgressCounter(){
+        double sumOfTasks = todo_id.size() + time_id.size() + counter_id.size();
+        double sumOfDoneTasks = 0.0;
+        for(int i=0;i<todo_done.size();i++) {
+            if (todo_done.get(i).equals("1")) {
+                sumOfDoneTasks++;
+            }
+        }
+        for(int i=0;i<time_done.size();i++) {
+            if (time_done.get(i).equals("1")) {
+                sumOfDoneTasks++;
+            }
+        }
+        for(int i=0;i<counter_done.size();i++) {
+            if (counter_done.get(i).equals("1")) {
+                sumOfDoneTasks++;
+            }
+        }
+        System.out.print(sumOfTasks +" AAA " + sumOfDoneTasks);
+        double result = sumOfDoneTasks/sumOfTasks;
+        return result;
+        }
+
 
 
 }

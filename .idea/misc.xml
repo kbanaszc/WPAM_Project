@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/drawable/ic_baseline_list_24.xml" value="0.17" />
+        <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.17" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/drawable/ic_baseline_timer_24.xml" value="0.288" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Kacper/Desktop/WPAM_Project/app/src/main/res/layout/fragment_add_counting_task.xml" value="0.36666666666666664" />

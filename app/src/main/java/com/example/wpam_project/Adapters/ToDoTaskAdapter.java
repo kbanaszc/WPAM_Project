@@ -26,7 +26,7 @@ public class ToDoTaskAdapter extends RecyclerView.Adapter<ToDoTaskAdapter.MyView
     private ArrayList todo_id, todo_task, todo_done;
     Fragment fragment;
     int doneTasksCount = 0;
-
+    TasksFragment fragmentParent;
 
     public ToDoTaskAdapter(TasksFragment fragmentParent, Fragment fragment, Context context, ArrayList todo_id, ArrayList todo_task, ArrayList todo_done){
         this.fragment = fragment;
@@ -34,6 +34,7 @@ public class ToDoTaskAdapter extends RecyclerView.Adapter<ToDoTaskAdapter.MyView
         this.todo_id = todo_id;
         this.todo_task = todo_task;
         this.todo_done = todo_done;
+        this.fragmentParent = fragmentParent;
     }
 
     @NonNull
@@ -89,6 +90,7 @@ public class ToDoTaskAdapter extends RecyclerView.Adapter<ToDoTaskAdapter.MyView
             builder.create().show();
             return true;
         });
+        fragmentParent.ProgressCounter();
     }
 
     @Override

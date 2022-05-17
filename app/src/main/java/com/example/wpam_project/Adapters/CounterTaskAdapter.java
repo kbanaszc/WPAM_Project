@@ -98,7 +98,6 @@ public class CounterTaskAdapter extends RecyclerView.Adapter<CounterTaskAdapter.
                     counter_id.remove(position);
                     notifyItemRangeChanged(position, getItemCount());
                     notifyItemRemoved(position);
-
                 }
             });
             builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -109,6 +108,7 @@ public class CounterTaskAdapter extends RecyclerView.Adapter<CounterTaskAdapter.
             builder.create().show();
             return true;
         });
+        fragmentParent.ProgressCounter();
     }
 
     @Override

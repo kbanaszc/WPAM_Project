@@ -11,6 +11,6 @@
         android:icon="@drawable/ic_baseline_add_24"/>
     <item
         android:id="@+id/calendarFragment"
-        android:title="Achievements"
-        android:icon="@drawable/ic_baseline_calendar_month_24"/>
+        android:title="Progress"
+        android:icon="@drawable/ic_baseline_star_24"/>
 </menu>

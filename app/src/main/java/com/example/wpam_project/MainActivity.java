@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     TasksFragment tasksFragment = new TasksFragment();
     AddTaskFragment addTaskFragment = new AddTaskFragment();
-    CalendarFragment calendarFragment = new CalendarFragment();
+    CalendarFragment calendarFragment = new CalendarFragment(tasksFragment);
     private ActivityKt NavigationHostFragment;
 
 

@@ -27,7 +27,6 @@ public class TimeTaskFragment extends Fragment {
     boolean timerStarted = false;
     long time;
     String mainTaskId;
-    TasksFragment tasksFragment;
 
 
     public TimeTaskFragment(long time, String id) {

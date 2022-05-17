@@ -1,32 +1,23 @@
 package com.example.wpam_project.Adapters;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.wpam_project.AddTaskFragment;
-import com.example.wpam_project.AddToDoTaskFragment;
-import com.example.wpam_project.CallBack;
 import com.example.wpam_project.DBHelpers.TimeTaskDBHelper;
-import com.example.wpam_project.DBHelpers.ToDoTaskDBHelper;
-import com.example.wpam_project.MainActivity;
 import com.example.wpam_project.R;
 import com.example.wpam_project.TasksFragment;
-import com.example.wpam_project.TimeTaskFragment;
 
 import java.util.ArrayList;
 
@@ -103,6 +94,7 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
             builder.create().show();
             return true;
         });
+        fragmentParent.ProgressCounter();
     }
 
     @Override
