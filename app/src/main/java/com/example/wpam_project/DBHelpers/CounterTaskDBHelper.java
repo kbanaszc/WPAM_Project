@@ -76,10 +76,13 @@ public class CounterTaskDBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public void taskChecked(String row_id, String task, boolean done){
+    public void appendMethod(String row_id, String task,int goal, int to_goal, int adder, boolean done){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TASK_NAME,task);
+        cv.put(COLUMN_GOAL,goal);
+        cv.put(COLUMN_TO_GOAL,to_goal);
+        cv.put(COLUMN_ADDER,adder);
         cv.put(COLUMN_DONE,done);
         db.update(TABLE_NAME,cv,"id=?",new String[]{row_id});
     }

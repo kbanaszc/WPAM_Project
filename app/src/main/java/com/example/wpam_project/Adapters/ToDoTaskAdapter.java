@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wpam_project.DBHelpers.ToDoTaskDBHelper;
 import com.example.wpam_project.R;
+import com.example.wpam_project.TasksFragment;
 
 import java.util.ArrayList;
 
@@ -24,9 +25,10 @@ public class ToDoTaskAdapter extends RecyclerView.Adapter<ToDoTaskAdapter.MyView
     private Context context;
     private ArrayList todo_id, todo_task, todo_done;
     Fragment fragment;
+    int doneTasksCount = 0;
 
 
-    public ToDoTaskAdapter( Fragment fragment, Context context, ArrayList todo_id, ArrayList todo_task, ArrayList todo_done){
+    public ToDoTaskAdapter(TasksFragment fragmentParent, Fragment fragment, Context context, ArrayList todo_id, ArrayList todo_task, ArrayList todo_done){
         this.fragment = fragment;
         this.context = context;
         this.todo_id = todo_id;
@@ -48,6 +50,7 @@ public class ToDoTaskAdapter extends RecyclerView.Adapter<ToDoTaskAdapter.MyView
         holder.todo_checkbox.setChecked(plasterwork.equals("1"));
         holder.todo_text.setText(String.valueOf(todo_task.get(position)));
         if (plasterwork.equals("1")) {
+            doneTasksCount++;
             holder.todo_text.setTextColor(context.getResources().getColor(R.color.teal_200));
         } else {
             holder.todo_text.setTextColor(context.getResources().getColor(R.color.teal_700));

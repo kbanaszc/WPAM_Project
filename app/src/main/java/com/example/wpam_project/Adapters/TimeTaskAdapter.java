@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wpam_project.AddTaskFragment;
 import com.example.wpam_project.AddToDoTaskFragment;
+import com.example.wpam_project.CallBack;
 import com.example.wpam_project.DBHelpers.TimeTaskDBHelper;
 import com.example.wpam_project.DBHelpers.ToDoTaskDBHelper;
 import com.example.wpam_project.MainActivity;
@@ -34,16 +35,16 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
     private Context context;
     private ArrayList time_id, time_task, time_time, time_done;
     private Fragment fragment;
-    private TasksFragment fragment2;
+    private TasksFragment fragmentParent;
 
-    public TimeTaskAdapter(TasksFragment fragment2,Fragment fragment, Context context, ArrayList time_id, ArrayList time_task, ArrayList time_time, ArrayList time_done){
+    public TimeTaskAdapter(TasksFragment fragmentParent,Fragment fragment, Context context, ArrayList time_id, ArrayList time_task, ArrayList time_time, ArrayList time_done){
         this.fragment = fragment;
         this.context = context;
         this.time_id = time_id;
         this.time_task = time_task;
         this.time_time = time_time;
         this.time_done = time_done;
-        this.fragment2 = fragment2;
+        this.fragmentParent = fragmentParent;
     }
 
     @NonNull
@@ -69,7 +70,13 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
         }
         holder.mainLayoutTime.setOnTouchListener((v, event) -> {
             if(event.getAction() == MotionEvent.ACTION_UP){
-                fragment2.navigateToTimeView();
+                fragmentParent.navigateToTimeView(Integer.parseInt(String.valueOf(time_time.get(position))), String.valueOf(time_id.get(position)));
+
+                TimeTaskDBHelper timeTaskDBHelper = new TimeTaskDBHelper(context);
+                timeTaskDBHelper.taskChecked(String.valueOf(time_id.get(position)),
+                        String.valueOf(time_task.get(position)),
+                        Integer.parseInt(String.valueOf(time_time.get(position))),
+                        true);
                 return true;
             }
             return false;
