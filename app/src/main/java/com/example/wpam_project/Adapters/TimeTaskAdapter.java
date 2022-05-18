@@ -59,8 +59,7 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
             holder.time_text_input.setTextColor(context.getResources().getColor(R.color.teal_700));
             holder.time_time_input.setTextColor(context.getResources().getColor(R.color.teal_700));
         }
-        holder.mainLayoutTime.setOnTouchListener((v, event) -> {
-            if(event.getAction() == MotionEvent.ACTION_UP){
+        holder.mainLayoutTime.setOnClickListener(v -> {
                 fragmentParent.navigateToTimeView(Integer.parseInt(String.valueOf(time_time.get(position))), String.valueOf(time_id.get(position)));
 
                 TimeTaskDBHelper timeTaskDBHelper = new TimeTaskDBHelper(context);
@@ -68,10 +67,8 @@ public class TimeTaskAdapter extends RecyclerView.Adapter<TimeTaskAdapter.MyView
                         String.valueOf(time_task.get(position)),
                         Integer.parseInt(String.valueOf(time_time.get(position))),
                         true);
-                return true;
-            }
-            return false;
         });
+
         holder.mainLayoutTime.setOnLongClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle("Delete");
